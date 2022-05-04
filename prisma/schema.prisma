@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model entries {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  applied           DateTime? @db.Date
+  approved          DateTime? @db.Date
+  biometry          DateTime? @db.Date
+  biometry_place    String?
+  country           String?
+  passport_submited DateTime? @db.Date
+  revieved          DateTime? @db.Date
+  /// Multiple data types found: Float: 50%, Int: 50% out of 2 sampled entries
+  telegram_id       Float?
+  username          String?
+}
+
+model users {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}

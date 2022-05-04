@@ -1,20 +1,38 @@
 {
-  "name": "immitrackmui",
-  "version": "0.1.0",
+  "name": "nextjs",
+  "version": "5.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 80",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/x-data-grid": "^5.10.0",
+    "@prisma/client": "^3.13.0",
+    "axios": "^0.27.2",
+    "axios-date-reviver": "^1.0.0-beta.2",
+    "date-fns": "^2.28.0",
+    "dayjs": "^1.11.1",
+    "next": "latest",
+    "node-telegram-login": "^2.0.0",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-telegram-login": "^1.1.2",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.6"
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "prisma": "^3.13.0"
   }
 }
