@@ -3,100 +3,33 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import Login from '../components/telegramLogin';
 import Container from '@mui/material/Container';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import axios from 'axios'
 import useSWR from 'swr'
 import { DataGrid } from '@mui/x-data-grid';
-let dayjs = require('dayjs')
+import revive from '../helpers/revive'
+import columns from '../data/columns'
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { vacs } from '../data/vacs';
+import UpdateForm from '../components/updateForm';
 
-function revive(name, value) {
-  if (typeof value === "string" && /^\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d.\d\d\dZ$/.test(value)) {
-      return new Date(value);
-  }
-  return value;
-}
-
-//const fetcher = url => axios.get(url).then(res => res.data)
 const fetcher = (...args) => fetch(...args)
   .then(res => res.json())
   .then(res => {
-    const a = JSON.parse(JSON.stringify(res),revive)
+    const a = JSON.parse(JSON.stringify(res), revive)
     return a
   })
 
 
-
-
-
-
-
-
-const columns = [
-  {
-    field: 'username',
-    headerName: 'Username',
-    width: 150
-  },
-  {
-    field: 'applied',
-    type:"date",
-    headerName: 'Date applied',
-    width: 120
-  },
-  {
-    field: 'biometry',
-    type:"date",
-    headerName: 'Biometry date',
-    width: 120
-  },
-  {
-    field: 'biometry_place',
-    headerName: 'Biometry place',
-    width: 150
-  },
-  {
-    field: 'approved',
-    type:"date",
-    headerName: 'Visa approved',
-    width: 120
-  },
-  {
-    field: 'passport_submited',
-    type:"date",
-    headerName: 'Passport submitted',
-    width: 120
-  },
-  {
-    field: 'country',
-    headerName: 'Country',
-    width: 150
-  },
-  {
-    field: 'revieved',
-    type:"date",
-    headerName: 'Visa recieved',
-    width: 120
-  },
-];
 
 export default function Index() {
   const [user, setUser] = useState()
   const [pageSize, setPageSize] = React.useState(5);
   const { data, error } = useSWR('/api/getRecords', fetcher)
   if (!data) return "Loading"
-  //console.log(data)
+  //console.log(user)
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
@@ -110,7 +43,9 @@ export default function Index() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Container maxWidth="lg">
+      <UpdateForm user={user}/>
+
+      <Container sx={{ marginTop: "20px" }} maxWidth="lg">
 
         <DataGrid
           autoHeight
