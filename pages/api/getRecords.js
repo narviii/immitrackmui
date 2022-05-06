@@ -11,7 +11,6 @@ async function getAllEntries() {
 
 async function findEntry(id) {
     // Connect the client
-    console.log(id)
     await prisma.$connect()
     // ... you will write your Prisma Client queries here
     const allEntries = await prisma.entries.findFirst({
@@ -27,7 +26,6 @@ export default async function handler(req, res) {
     try {
         //console.log(req.query)
         if (Object.keys(req.query).length === 0) {
-            console.log('aaa')
             const allEntries = await getAllEntries()
             res.status(202).json(allEntries)
         } else {
