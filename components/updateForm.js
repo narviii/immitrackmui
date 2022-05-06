@@ -126,7 +126,7 @@ export default function UpdateForm({ user, mutate }) {
                     id="country-select"
                     options={countries}
                     sx={{ width: 300 }}
-                    renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} label="Country" />}
+                    renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} label="Submission country" />}
                 />
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
