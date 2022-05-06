@@ -16,11 +16,18 @@ model entries {
   country           String?
   passport_submited DateTime? @db.Date
   revieved          DateTime? @db.Date
-  /// Multiple data types found: Float: 50%, Int: 50% out of 2 sampled entries
-  telegram_id       Float?
-  username          String?
+  /// Multiple data types found: Float: 50%, Int: 50% out of 8 sampled entries
+  telegram_id       Float?    @unique
+  username          String
 }
 
 model users {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  auth_date   Float
+  first_name  String
+  hash        String
+  last_name   String
+  photo_url   String
+  telegram_id Float  @unique
+  username    String
 }

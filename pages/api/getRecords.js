@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-async function main() {
+async function getAllEntries() {
     // Connect the client
     await prisma.$connect()
     // ... you will write your Prisma Client queries here
@@ -9,12 +9,31 @@ async function main() {
     return allEntries
 }
 
+async function findEntry(id) {
+    // Connect the client
+    await prisma.$connect()
+    // ... you will write your Prisma Client queries here
+    const allEntries = await prisma.entries.findFirst({
+        where: {
+            telegram_id: 17997113,
+        },
+    })
+    return allEntries
+}
+
 export default async function handler(req, res) {
     if (req.method !== 'GET') res.status(405).send("Not allowed method")
     try {
-        const allEntries = await main()
-        console.log(typeof(allEntries[0].biometry))
-        res.status(202).json(allEntries)
+        //console.log(req.query)
+        if (Object.keys(req.query).length === 0) {
+            console.log('aaa')
+            const allEntries = await getAllEntries()
+            res.status(202).json(allEntries)
+        } else {
+            const entry = await findEntry(req.query.id)
+            res.status(202).json(entry)
+        }
+
     } catch (err) {
         console.log(err)
         res.status(500).send("Server error")

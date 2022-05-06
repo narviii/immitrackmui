@@ -45,14 +45,14 @@ const columns = [
         field: 'passport_submited',
         type: "date",
         headerName: 'Passport submitted',
-        width: 120,
+        width: 150,
         valueFormatter: dateFormat
 
     },
     {
         field: 'country',
         headerName: 'Country',
-        width: 150
+        width: 200
     },
     {
         field: 'revieved',

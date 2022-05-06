@@ -1,510 +1,332 @@
 export const countries = [
     {
-        label: "Ivory Coast"
+      label: "Ivory Coast"
     },
     {
-        label: "United Arab Emirates"
+      label: "United Arab Emirates"
     },
     {
-        label: "Nigeria"
+      label: "Nigeria"
     },
     {
-        label: "Ghana"
+      label: "Ghana"
     },
     {
-        label: "Ethiopia"
+      label: "Ethiopia"
     },
     {
-        label: "India"
+      label: "India"
     },
     {
-        label: "Saudi Arabia"
+      label: "Saudi Arabia"
     },
     {
-        label: "Algeria"
+      label: "Algeria"
     },
     {
-        label: "Kazakhstan"
+      label: "Kazakhstan"
     },
     {
-        label: "Jordan"
+      label: "Jordan"
     },
     {
-        label: "Turkey"
+      label: "Turkey"
     },
     {
-
-        label: "Madagascar"
+      label: "Madagascar"
     },
     {
-        label: "Paraguay"
+      label: "Paraguay"
     },
     {
-        label: "Greece"
+      label: "Greece"
     },
     {
-        label: "New Zealand"
+      label: "New Zealand"
     },
     {
-        label: "Azerbaijan"
+      label: "Azerbaijan"
     },
     {
-        label: "Indonesia"
+      label: "Indonesia"
     },
     {
-        label: "Mali"
+      label: "Mali"
     },
     {
-        label: "India"
+      label: "Thailand"
     },
     {
-        label: "Thailand"
+      label: "China"
     },
     {
-        label: "China"
+      label: "Lebanon"
     },
     {
-        label: "Lebanon"
+      label: "Serbia"
     },
     {
-        label: "Serbia"
+      label: "Germany"
     },
     {
-        label: "Germany"
+      label: "Kyrgyzstan"
     },
     {
-        label: "Kyrgyzstan"
+      label: "Colombia"
     },
     {
-        label: "Colombia"
+      label: "Brazil"
     },
     {
-        label: "Brazil"
+      label: "Barbados"
     },
     {
-        label: "Barbados"
+      label: "Romania"
     },
     {
-        label: "Romania"
+      label: "Argentina"
     },
     {
-
-        label: "Argentina"
+      label: "Egypt"
     },
     {
-        label: "Egypt"
+      label: "South Africa"
     },
     {
-        label: "Colombia"
+      label: "Venezuela"
     },
     {
-        label: "South Africa"
+      label: "Saint Lucia"
     },
     {
-        label: "Venezuela"
+      label: "Philippines"
     },
     {
-        label: "Saint Lucia"
+      label: "Moldova"
     },
     {
-        label: "Philippines"
+      label: "Bangladesh"
     },
     {
-        label: "India"
+      label: "Sri Lanka"
     },
     {
-        label: "China"
+      label: "Guinea"
     },
     {
-        label: "India"
+      label: "Senegal"
     },
     {
-        label: "Moldova"
+      label: "Tanzania"
     },
     {
-        label: "Bangladesh"
+      label: "Qatar"
     },
     {
-        label: "China"
+      label: "Ireland"
     },
     {
-        label: "Sri Lanka"
+      label: "Tajikistan"
     },
     {
-        label: "Guinea"
+      label: "Iraq"
     },
     {
-        label: "Senegal"
+      label: "Guyana"
     },
     {
-
-        label: "Tanzania"
+      label: "Guatemala"
     },
     {
-        label: "Bangladesh"
+      label: "Vietnam"
     },
     {
-        label: "Qatar"
+      label: "Zimbabwe"
     },
     {
-        label: "United Arab Emirates"
+      label: "Finland"
     },
     {
-        label: "Ireland"
+      label: "Hong Kong SAR"
     },
     {
-        label: "Tajikistan"
+      label: "Pakistan"
     },
     {
-        label: "Germany"
+      label: "Uganda"
     },
     {
-        label: "Iraq"
+      label: "Nepal"
     },
     {
-        label: "Guyana"
+      label: "Sudan"
     },
     {
-        label: "China"
+      label: "Rwanda"
     },
     {
-
-        label: "Guatemala"
+      label: "Jamaica"
     },
     {
-        label: "China"
+      label: "Saint Vincent and the Grenadines"
     },
     {
-        label: "Vietnam"
+      label: "Democratic Rep. of Congo"
     },
     {
-        label: "Zimbabwe"
+      label: "Malaysia"
     },
     {
-        label: "Finland"
+      label: "Kuwait"
     },
     {
-        label: "Vietnam"
+      label: "Ukraine"
     },
     {
-        label: "Hong Kong SAR"
+      label: "Bolivia"
     },
     {
-        label: "India"
+      label: "Peru"
     },
     {
-        label: "Pakistan"
+      label: "United Kingdom"
     },
     {
-        label: "Turkey"
+      label: "United States"
     },
     {
-        label: "Indonesia"
+      label: "France"
     },
     {
-        label: "India"
+      label: "Spain"
     },
     {
-        label: "Saudi Arabia"
+      label: "Nicaragua"
     },
     {
-        label: "China"
+      label: "Bahrain"
     },
     {
-        label: "Uganda"
+      label: "Australia"
     },
     {
-        label: "Pakistan"
+      label: "Mexico"
     },
     {
-        label: "Nepal"
+      label: "Uruguay"
     },
     {
-        label: "Sudan"
+      label: "Russia"
     },
     {
-        label: "Rwanda"
+      label: "Oman"
     },
     {
-        label: "Jamaica"
+      label: "Kenya"
     },
     {
-        label: "Saint Vincent and the Grenadines"
+      label: "Niger"
     },
     {
-        label: "Democratic Rep. of Congo"
+      label: "Japan"
     },
     {
-        label: "India"
+      label: "Burkina Faso"
     },
     {
-
-        label: "Malaysia"
+      label: "Panama"
     },
     {
-        label: "China"
+      label: "Cambodia"
     },
     {
-
-        label: "Kuwait"
+      label: "Mauritius"
     },
     {
-        label: "Ukraine"
+      label: "Trinidad and Tobago"
     },
     {
-        label: "Bolivia"
+      label: "Haiti"
     },
     {
-        label: "Nigeria"
+      label: "Kosovo"
     },
     {
-        label: "Pakistan"
+      label: "Ecuador"
     },
     {
-        label: "Peru"
+      label: "Morocco"
     },
     {
-        label: "United Kingdom"
+      label: "Burma (Myanmar)"
     },
     {
-        label: "United States"
+      label: "Italy"
     },
     {
-        label: "Ukraine"
+      label: "Costa Rica"
     },
     {
-        label: "France"
+      label: "El Salvador"
     },
     {
-        label: "Spain"
+      label: "Chile"
     },
     {
-        label: "Nicaragua"
+      label: "Dominican Republic"
     },
     {
-        label: "Bahrain"
+      label: "Bosnia and Herzegovina"
     },
     {
-        label: "Philippines"
+      label: "South Korea"
     },
     {
-        label: "Colombia"
+      label: "Singapore"
     },
     {
-        label: "Australia"
+      label: "Macedonia"
     },
     {
-
-        label: "Mexico"
+      label: "Sweden"
     },
     {
-        label: "Jamaica"
+      label: "Fiji"
     },
     {
-        label: "Uruguay"
+      label: "Taiwan"
     },
     {
-        label: "Russia"
+      label: "Georgia"
     },
     {
-        label: "India"
+      label: "Honduras"
     },
     {
-        label: "Oman"
+      label: "Israel"
     },
     {
-        label: "Kenya"
+      label: "The Netherlands"
     },
     {
-        label: "China"
+      label: "Albania"
     },
     {
-        label: "India"
+      label: "Tunisia"
     },
     {
-        label: "United States"
+      label: "Mongolia"
     },
     {
-        label: "Niger"
+      label: "Austria"
     },
     {
-        label: "Russia"
+      label: "Poland"
     },
     {
-        label: "Kazakhstan"
+      label: "Cameroon"
     },
     {
-        label: "Japan"
-    },
-    {
-        label: "Burkina Faso"
-    },
-    {
-
-        label: "Panama"
-    },
-    {
-        label: "France"
-    },
-    {
-        label: "Australia"
-    },
-    {
-        label: "Cambodia"
-    },
-    {
-        label: "Mauritius"
-    },
-    {
-
-        label: "Trinidad and Tobago"
-    },
-    {
-
-        label: "Haiti"
-    },
-    {
-
-        label: "Brazil"
-    },
-    {
-        label: "South Africa"
-    },
-    {
-        label: "Kosovo"
-    },
-    {
-        label: "India"
-    },
-    {
-        label: "Ecuador"
-    },
-    {
-        label: "Morocco"
-    },
-    {
-
-        label: "Burma (Myanmar)"
-    },
-    {
-        label: "Brazil"
-    },
-    {
-
-        label: "Brazil"
-    },
-    {
-        label: "Saudi Arabia"
-    },
-    {
-        label: "Italy"
-    },
-    {
-
-        label: "Russia"
-    },
-    {
-
-        label: "Russia"
-    },
-    {
-        label: "Costa Rica"
-    },
-    {
-
-        label: "El Salvador"
-    },
-    {
-        label: "Chile"
-    },
-    {
-
-        label: "Dominican Republic"
-    },
-    {
-        label: "Brazil"
-    },
-    {
-        label: "Bosnia and Herzegovina"
-    },
-    {
-        label: "South Korea"
-    },
-    {
-        label: "China"
-    },
-    {
-        label: "China"
-    },
-    {
-        label: "Singapore"
-    },
-    {
-        label: "Macedonia"
-    },
-    {
-        label: "Sweden"
-    },
-    {
-        label: "Fiji"
-    },
-    {
-        label: "Australia"
-    },
-    {
-        label: "Bangladesh"
-    },
-    {
-        label: "Taiwan"
-    },
-    {
-        label: "Georgia"
-    },
-    {
-        label: "Honduras"
-    },
-    {
-        label: "Israel"
-    },
-    {
-        label: "The Netherlands"
-    },
-    {
-        label: "Albania"
-    },
-    {
-        label: "Japan"
-    },
-    {
-        label: "Tunisia"
-    },
-    {
-        label: "Mongolia"
-    },
-    {
-        label: "Austria"
-    },
-    {
-        label: "Russia"
-    },
-    {
-        label: "Poland"
-    },
-    {
-
-        label: "Poland"
-    },
-    {
-        label: "China"
-    },
-    {
-        label: "Cameroon"
-    },
-    {
-
-        label: "Russia"
-    },
-    {
-        label: "Armenia"
-    },
-]
+      label: "Armenia"
+    }
+   ]

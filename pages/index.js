@@ -6,13 +6,10 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import Login from '../components/telegramLogin';
 import Container from '@mui/material/Container';
-import useSWR from 'swr'
+import useSWR,{ useSWRConfig } from 'swr'
 import { DataGrid } from '@mui/x-data-grid';
 import revive from '../helpers/revive'
 import columns from '../data/columns'
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import { vacs } from '../data/vacs';
 import UpdateForm from '../components/updateForm';
 
 const fetcher = (...args) => fetch(...args)
@@ -28,8 +25,10 @@ export default function Index() {
   const [user, setUser] = useState()
   const [pageSize, setPageSize] = React.useState(5);
   const { data, error } = useSWR('/api/getRecords', fetcher)
+  const { mutate } = useSWRConfig()
+  //console.log(mutate)
   if (!data) return "Loading"
-  //console.log(user)
+  if(error) return "Error!"
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
@@ -43,7 +42,7 @@ export default function Index() {
           </Toolbar>
         </AppBar>
       </Box>
-      <UpdateForm user={user}/>
+      <UpdateForm user={user} mutate={mutate}/>
 
       <Container sx={{ marginTop: "20px" }} maxWidth="lg">
 
