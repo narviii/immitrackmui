@@ -28,7 +28,7 @@ export default function Login({ user, setUser }) {
     return (
         <div>
             {!user ?
-                <TelegramLoginButton dataOnauth={(res) => handleTelegramResponse(res, setUser)} botName="timeBigle_bot" />
+                <TelegramLoginButton dataOnauth={(res) => handleTelegramResponse(res, setUser)} botName="immitrackBot" />
                 :
                 <LogoutButton setUser={setUser} />}
         </div>
