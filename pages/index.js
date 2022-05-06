@@ -27,7 +27,7 @@ export default function Index() {
   const { data, error } = useSWR('/api/getRecords', fetcher)
   const { mutate } = useSWRConfig()
   //console.log(mutate)
-  if (!data) return "Loading"
+  //if (!data) return "Loading"
   if(error) return "Error!"
   return (
     <React.Fragment>
@@ -46,7 +46,7 @@ export default function Index() {
 
       <Container sx={{ marginTop: "20px" }} maxWidth="lg">
 
-        <DataGrid
+        {data?<DataGrid
           autoHeight
           rows={data}
           columns={columns}
@@ -54,7 +54,7 @@ export default function Index() {
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20]}
           disableSelectionOnClick
-        />
+        />:"loading"}
 
 
       </Container>
