@@ -60,7 +60,9 @@ export default function handler(req, res) {
     if (req.method !== 'POST') res.status(405).send("Not allowed method")
     console.log("Method correct")
     try {
+        console.log(`Secret is ${secret}`)
         const token = TelegramAuth.checkLoginData(JSON.parse(req.headers.authorization.split(' ')[1]))
+        console.log(`token is ${token}`)
         if (token) {
             console.log("token accepted")
             writeDB(req.body, token)
