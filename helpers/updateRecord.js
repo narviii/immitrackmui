@@ -10,14 +10,14 @@ export default function updateRecordHelper(data, setUpdateStatus,mutate) {
 
     axios.post('/api/updateRecord', data, config)
         .then((res) => {
-            //console.log(mutate)
+            console.log(res)
             setUpdateStatus("sucess")
             mutate('/api/getRecords')
             setTimeout(() => setUpdateStatus("ready"), 1000)
         }).catch((err) => {
+            console.log(res)
             setUpdateStatus("error")
             setTimeout(() => setUpdateStatus("ready"), 3000)
-            console.log("Some error")
         })
 
 

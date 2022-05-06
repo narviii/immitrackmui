@@ -5,6 +5,7 @@ const prisma = new PrismaClient()
 const TelegramAuth = new TelegramLogin(secret);
 
 async function writeDB(data, token) {
+    //console.log(token)
     await prisma.$connect()
     await prisma.entries.upsert({
         where: { telegram_id: token.id },
@@ -61,9 +62,9 @@ export default function handler(req, res) {
         if (token) {
             writeDB(req.body, token)
             res.status(202).send(`Updated record for ${token.username}`)
-        } else res.status(511).send("Not authorized")
+        } else res.status(511).send("Token not valid. Not authorized.")
     } catch (error) {
-        res.status(511).send("Not authorized")
+        res.status(511).send("Some error. Not authorized")
     }
 
 
