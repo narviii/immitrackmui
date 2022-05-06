@@ -51,7 +51,7 @@ const columns = [
     },
     {
         field: 'country',
-        headerName: 'Country',
+        headerName: 'Submission country',
         width: 200
     },
     {

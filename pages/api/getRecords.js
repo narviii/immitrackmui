@@ -16,7 +16,7 @@ async function findEntry(id) {
     // ... you will write your Prisma Client queries here
     const allEntries = await prisma.entries.findFirst({
         where: {
-            telegram_id: id,
+            telegram_id: parseFloat(id),
         },
     })
     return allEntries
