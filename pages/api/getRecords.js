@@ -11,11 +11,12 @@ async function getAllEntries() {
 
 async function findEntry(id) {
     // Connect the client
+    console.log(id)
     await prisma.$connect()
     // ... you will write your Prisma Client queries here
     const allEntries = await prisma.entries.findFirst({
         where: {
-            telegram_id: 17997113,
+            telegram_id: id,
         },
     })
     return allEntries

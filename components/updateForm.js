@@ -26,7 +26,6 @@ export default function UpdateForm({ user, mutate }) {
         if (!user) return
         axios.get('/api/getRecords', { params: { id: user.id } }).
             then((res) => {
-
                 if (!res.data) return
                 formik.setFieldValue('applied', res.data.applied ? new Date(res.data.applied) : null)
                 formik.setFieldValue('biometry', res.data.biometry ? new Date(res.data.biometry) : null)
