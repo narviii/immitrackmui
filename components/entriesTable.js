@@ -10,7 +10,7 @@ export default function EntriesTabke({ data }) {
 
 
     const skeleton = <Box sx={{ height: 300, display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
-        {[...Array(12).keys()].map(() => <Skeleton animation="wave" />)}
+        {Array.from(Array(10).keys()).map((key) => <Skeleton key={key} animation="wave" />)}
     </Box>
 
     return (
