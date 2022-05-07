@@ -6,11 +6,11 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import Login from '../components/telegramLogin';
 import Container from '@mui/material/Container';
-import useSWR,{ useSWRConfig } from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 import { DataGrid } from '@mui/x-data-grid';
 import revive from '../helpers/revive'
-import columns from '../data/columns'
 import UpdateForm from '../components/updateForm';
+import Table from '../components/entriesTable';
 
 const fetcher = (...args) => fetch(...args)
   .then(res => res.json())
@@ -21,14 +21,11 @@ const fetcher = (...args) => fetch(...args)
 
 
 
-export default function Index() {
+export default function Index({ entries }) {
   const [user, setUser] = useState()
-  const [pageSize, setPageSize] = React.useState(5);
   const { data, error } = useSWR('/api/getRecords', fetcher)
   const { mutate } = useSWRConfig()
-  //console.log(mutate)
-  //if (!data) return "Loading"
-  if(error) return "Error!"
+  if (error) return "Error!"
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
@@ -42,22 +39,16 @@ export default function Index() {
           </Toolbar>
         </AppBar>
       </Box>
-      <UpdateForm user={user} mutate={mutate}/>
+      <UpdateForm user={user} mutate={mutate} />
 
       <Container sx={{ marginTop: "20px" }} maxWidth="lg">
 
-        {data?<DataGrid
-          autoHeight
-          rows={data}
-          columns={columns}
-          pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          rowsPerPageOptions={[5, 10, 20]}
-          disableSelectionOnClick
-        />:"loading"}
-
+        
+        <Table data={data}  />
 
       </Container>
     </React.Fragment>
   );
 }
+
+

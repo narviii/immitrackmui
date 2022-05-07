@@ -20,7 +20,7 @@ function findVac(vacs, biometry_place) {
     return vacs.find(elem => elem.label === biometry_place)
 }
 
-export default function UpdateForm({ user, mutate }) {
+export default function UpdateForm({ user, mutate,setUser }) {
     
     useEffect(() => {
         if (!user) return
@@ -54,12 +54,11 @@ export default function UpdateForm({ user, mutate }) {
             revieved: null,
         },
         onSubmit: (values) => {
-            //console.log(mutate)
             setUpdateStatus("loading")
             updateRecordHelper(values, setUpdateStatus,mutate)
+            mutate('/api/getRecords')
         },
     })
-    //console.log(updateStatus)
     return (
         <Container sx={{ marginTop: "10px" }} maxWidth="lg">
             <Paper sx={{ padding: "15px", display: "flex", flexDirection: "column" }}>
@@ -138,7 +137,7 @@ export default function UpdateForm({ user, mutate }) {
                         renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} />}
                     />
                 </LocalizationProvider>
-                <UpdateButton submit={formik.handleSubmit} status={updateStatus} user={user} />
+                <UpdateButton submit={formik.handleSubmit} status={updateStatus} user={user} setUser={setUser} />
             </Paper>
 
         </Container>

@@ -12,7 +12,7 @@ export default function updateRecordHelper(data, setUpdateStatus,mutate) {
         .then((res) => {
             //console.log(res)
             setUpdateStatus("sucess")
-            //mutate('/api/getRecords')
+            mutate('/api/getRecords')
             setTimeout(() => setUpdateStatus("ready"), 1000)
         }).catch((err) => {
             console.log(res)
