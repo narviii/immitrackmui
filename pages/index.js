@@ -33,7 +33,7 @@ export default function Index({ entries }) {
           <Toolbar>
 
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Трекер для отслеживания сроков получения виз CUAET.
+              CUAET tracker
             </Typography>
             <Login user={user} setUser={setUser} />
           </Toolbar>
