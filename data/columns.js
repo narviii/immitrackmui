@@ -58,7 +58,7 @@ const columns = [
     {
         field: 'country',
         headerName: 'Submission country',
-        description:'В какой стране отправилип паспорт на вклейку визы?',
+        description:'В какой стране отправили паспорт на вклейку визы?',
         width: 200
     },
     {
