@@ -1,9 +1,10 @@
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 export default function UpdateButton({ submit, status,user }) {
     if (!user) return (
-        <Button sx={{ marginTop: "10px" }} variant="outlined">Please log in</Button>
+        <Typography sx={{ marginTop: "10px" }} variant="body">Чтоб добавить или изменить запись, пожалуйста, авторизуйтесь.</Typography>
     )
     switch (status) {
         case "ready":

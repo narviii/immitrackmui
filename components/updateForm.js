@@ -70,28 +70,29 @@ export default function UpdateForm({ user, mutate, setUser }) {
                         Добавить или редактировать вашу запись
                     </Typography>
                     <Typography variant="p" component="div" sx={{ flexGrow: 1, mb: 2 }}>
-                        {`Здраствуйте, ${user?.username}`}
+                        {user?`Здраствуйте, ${user?.username}`:"   "}
                     </Typography>
 
 
                     <Box sx={{display:"flex",flexWrap:"wrap"}}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
-                                label="Какого числа подались на визу?"
+                                label="Когда подались?"
+                                
                                 disabled={!user ? true : false}
                                 value={formik.values.applied}
                                 onChange={(val) => { formik.setFieldValue('applied', val) }}
-                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                                renderInput={(params) => <TextField helperText="Дата подачи на визу." sx={{ mb: 2, mr: 2 }}  {...params} />}
                             />
                         </LocalizationProvider>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 id="biometry-date"
-                                label="Дата сдачи биометрии"
+                                label="Когда биометрия?"
                                 disabled={!user ? true : false}
                                 value={formik.values.biometry}
                                 onChange={(val) => { formik.setFieldValue('biometry', val) }}
-                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                                renderInput={(params) => <TextField helperText="Дата подачи на биометрию." sx={{ mb: 2, mr: 2 }}  {...params} />}
                             />
                         </LocalizationProvider>
                         <Autocomplete
@@ -102,26 +103,26 @@ export default function UpdateForm({ user, mutate, setUser }) {
                             disabled={!user ? true : false}
                             id="biometry-place-select"
                             options={vacs}
-                            renderInput={(params) => <TextField  {...params} label="Где сдавали биометрию?" />}
+                            renderInput={(params) => <TextField helperText="Город(vac) подачи на биометрию."  {...params} label="Где сдавали биометрию?" />}
                         />
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 id="visa-approved"
-                                label="Когда вам одобрили визу?"
+                                label="Когда одобрили?"
                                 disabled={!user ? true : false}
                                 value={formik.values.approved}
                                 onChange={(val) => { formik.setFieldValue('approved', val) }}
-                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                                renderInput={(params) => <TextField helperText="Дата одобрения визы" sx={{ mb: 2, mr: 2 }}  {...params} />}
                             />
                         </LocalizationProvider>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 id="pasport-submitted"
                                 disabled={!user ? true : false}
-                                label="Когда послали паспорт на вклейку визы?"
+                                label="Когда послали паспорт?"
                                 value={formik.values.passport_submited}
                                 onChange={(val) => { formik.setFieldValue('passport_submited', val) }}
-                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                                renderInput={(params) => <TextField helperText="Дата, когда послали паспорт на вклейку." sx={{ mb: 2, mr: 2 }}  {...params} />}
                             />
                         </LocalizationProvider>
                         <Autocomplete
@@ -132,16 +133,16 @@ export default function UpdateForm({ user, mutate, setUser }) {
                             id="country-select"
                             disabled={!user ? true : false}
                             options={countries}
-                            renderInput={(params) => <TextField  {...params} label="В какой стране подавались?" />}
+                            renderInput={(params) => <TextField  {...params} label="Где подавались?" helperText="В какой стране подавались на визу." />}
                         />
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 id="visa-recieved"
-                                label="Какого числа получили визу?"
+                                label="Когда получили назад?"
                                 disabled={!user ? true : false}
                                 value={formik.values.revieved}
                                 onChange={(val) => { formik.setFieldValue('revieved', val) }}
-                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                                renderInput={(params) => <TextField helperText="Какого числа получили паспорт обратно?" sx={{ mb: 2, mr: 2 }}  {...params} />}
                             />
                         </LocalizationProvider>
                     </Box>
