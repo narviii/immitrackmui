@@ -8,7 +8,7 @@ function anonimize(param) {
         dictionaries: [adjectives, animals],
         separator: ' ',
         seed: param.id,
-        style: 'capital'
+        
     };
     return uniqueNamesGenerator(config)
 }
@@ -23,11 +23,16 @@ function dateFormat(param) {
 
 
 const columns = [
-    
+    {
+        field: 'username',
+        headerName: 'TG username',
+        description: 'Имя пользователя в Telegram.  Автоматически подтягивается при авторизации.',
+        width: 170,
+    },
     {
         field: 'applied',
         type: "date",
-        headerName: 'Applied for visa',
+        headerName: 'Applied',
         description: 'Какого числа подались на визу?',
         width: 120,
         valueFormatter: dateFormat
@@ -35,7 +40,7 @@ const columns = [
     {
         field: 'biometry',
         type: "date",
-        headerName: 'Biometry date',
+        headerName: 'Biometry',
         description: 'Какого числа сдали биометрию?',
         width: 120,
         valueFormatter: dateFormat
