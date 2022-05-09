@@ -7,12 +7,11 @@ import { useState } from 'react';
 import Login from '../components/telegramLogin';
 import Container from '@mui/material/Container';
 import useSWR, { useSWRConfig } from 'swr'
-import { DataGrid } from '@mui/x-data-grid';
 import revive from '../helpers/revive'
 import UpdateForm from '../components/updateForm';
 import Table from '../components/entriesTable';
 import Paper from '@mui/material/Paper';
-
+import Link from '@mui/material/Link';
 const fetcher = (...args) => fetch(...args)
   .then(res => res.json())
   .then(res => {
@@ -61,6 +60,7 @@ export default function Index({ entries }) {
 
 
         <Table data={data} />
+        <Typography sx={{mb:4,mt:2}}>Исходная Google Doc таблица находится <Link href="https://docs.google.com/spreadsheets/d/1sgUPbogDw7V4rakrBSJ07_YLhvVem79rtGq7Xj__ec0/edit#gid=0"> вот тут</Link></Typography>
 
       </Container>
     </React.Fragment>
