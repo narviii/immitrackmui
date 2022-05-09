@@ -11,6 +11,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import revive from '../helpers/revive'
 import UpdateForm from '../components/updateForm';
 import Table from '../components/entriesTable';
+import Paper from '@mui/material/Paper';
 
 const fetcher = (...args) => fetch(...args)
   .then(res => res.json())
@@ -33,18 +34,33 @@ export default function Index({ entries }) {
           <Toolbar>
 
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Immigration tracker
+              Трекер для отслеживание срок получения виз CUAET.
             </Typography>
             <Login user={user} setUser={setUser} />
           </Toolbar>
         </AppBar>
       </Box>
+      <Container maxWidth="lg">
+        <Paper sx={{ padding: "15px" }}>
+          
+          <Typography variant="h5">
+            Это трекер для отслеживания сроков получения виз CUAET участниками чатов о иммиграции в 🇨🇦Канаду для 🇺🇦украинцев.
+
+          </Typography>
+          <Typography variant="h6">
+            Как это работает?
+          </Typography>
+          <Typography variant="body">
+            Вы авторизируетесь телеграмом и вносите ваши данные. К страничке можно возвращаться много раз и править вашу запись(по мере прохождения вашего процесса). Данные других участников можно посмотреть в таблице, применив к ней фильтры.
+          </Typography>
+        </Paper>
+      </Container>
       <UpdateForm user={user} mutate={mutate} />
 
       <Container sx={{ marginTop: "20px" }} maxWidth="lg">
 
-        
-        <Table data={data}  />
+
+        <Table data={data} />
 
       </Container>
     </React.Fragment>

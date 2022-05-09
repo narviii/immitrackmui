@@ -14,14 +14,15 @@ import { useFormik } from 'formik';
 import updateRecordHelper from "../helpers/updateRecord";
 import axios from "axios";
 import UpdateButton from "./updateButton";
+import Box from '@mui/material/Box';
 
 
 function findVac(vacs, biometry_place) {
     return vacs.find(elem => elem.label === biometry_place)
 }
 
-export default function UpdateForm({ user, mutate,setUser }) {
-    
+export default function UpdateForm({ user, mutate, setUser }) {
+
     useEffect(() => {
         if (!user) return
         axios.get('/api/getRecords', { params: { id: user.id } }).
@@ -55,91 +56,102 @@ export default function UpdateForm({ user, mutate,setUser }) {
         },
         onSubmit: (values) => {
             setUpdateStatus("loading")
-            updateRecordHelper(values, setUpdateStatus,mutate)
+            updateRecordHelper(values, setUpdateStatus, mutate)
             mutate('/api/getRecords')
         },
     })
     return (
         <Container sx={{ marginTop: "10px" }} maxWidth="lg">
-            <Paper sx={{ padding: "15px", display: "flex", flexDirection: "column" }}>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Add or edit your record
-                </Typography>
-                <Typography variant="p" component="div" sx={{ flexGrow: 1 }}>
-                    {user?.username}
-                </Typography>
+            <Paper sx={{ padding: "15px" }}>
+                <Box sx={{ display: "block" }}>
 
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        label="Date applied"
-                        value={formik.values.applied}
-                        onChange={(val) => { formik.setFieldValue('applied', val) }}
-                        renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} />}
-                    />
-                </LocalizationProvider>
 
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        id="biometry-date"
-                        label="Biometry date"
-                        value={formik.values.biometry}
-                        onChange={(val) => { formik.setFieldValue('biometry', val) }}
-                        renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} />}
-                    />
-                </LocalizationProvider>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Добавить или редактировать вашу запись
+                    </Typography>
+                    <Typography variant="p" component="div" sx={{ flexGrow: 1, mb: 2 }}>
+                        {`Здраствуйте, ${user?.username}`}
+                    </Typography>
 
-                <Autocomplete
-                    value={formik.values.biometry_place}
-                    onChange={(e, val) => { formik.setFieldValue('biometry_place', val) }}
-                    disablePortal
-                    id="biometry-place-select"
-                    options={vacs}
-                    sx={{ width: 300 }}
-                    renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} label="Biometry place" />}
-                />
 
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        id="visa-approved"
-                        label="Visa approved"
-                        value={formik.values.approved}
-                        onChange={(val) => { formik.setFieldValue('approved', val) }}
-                        renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} />}
-                    />
-                </LocalizationProvider>
+                    <Box sx={{display:"flex",flexWrap:"wrap"}}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                label="Какого числа подались на визу?"
+                                disabled={!user ? true : false}
+                                value={formik.values.applied}
+                                onChange={(val) => { formik.setFieldValue('applied', val) }}
+                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                            />
+                        </LocalizationProvider>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                id="biometry-date"
+                                label="Дата сдачи биометрии"
+                                disabled={!user ? true : false}
+                                value={formik.values.biometry}
+                                onChange={(val) => { formik.setFieldValue('biometry', val) }}
+                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                            />
+                        </LocalizationProvider>
+                        <Autocomplete
+                            value={formik.values.biometry_place}
+                            onChange={(e, val) => { formik.setFieldValue('biometry_place', val) }}
+                            disablePortal
+                            sx={{ width: 250,mr:2,mb:2 }}
+                            disabled={!user ? true : false}
+                            id="biometry-place-select"
+                            options={vacs}
+                            renderInput={(params) => <TextField  {...params} label="Где сдавали биометрию?" />}
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                id="visa-approved"
+                                label="Когда вам одобрили визу?"
+                                disabled={!user ? true : false}
+                                value={formik.values.approved}
+                                onChange={(val) => { formik.setFieldValue('approved', val) }}
+                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                            />
+                        </LocalizationProvider>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                id="pasport-submitted"
+                                disabled={!user ? true : false}
+                                label="Когда послали паспорт на вклейку визы?"
+                                value={formik.values.passport_submited}
+                                onChange={(val) => { formik.setFieldValue('passport_submited', val) }}
+                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                            />
+                        </LocalizationProvider>
+                        <Autocomplete
+                            value={formik.values.country}
+                            onChange={(e, val) => { formik.setFieldValue('country', val) }}
+                            disablePortal
+                            sx={{ width: 250,mr:2,mb:2 }}
+                            id="country-select"
+                            disabled={!user ? true : false}
+                            options={countries}
+                            renderInput={(params) => <TextField  {...params} label="В какой стране подавались?" />}
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker
+                                id="visa-recieved"
+                                label="Какого числа получили визу?"
+                                disabled={!user ? true : false}
+                                value={formik.values.revieved}
+                                onChange={(val) => { formik.setFieldValue('revieved', val) }}
+                                renderInput={(params) => <TextField sx={{ mb: 2, mr: 2 }}  {...params} />}
+                            />
+                        </LocalizationProvider>
+                    </Box>
 
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        id="pasport-submitted"
-                        label="Passport submitted"
-                        value={formik.values.passport_submited}
-                        onChange={(val) => { formik.setFieldValue('passport_submited', val) }}
-                        renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} />}
-                    />
-                </LocalizationProvider>
-
-                <Autocomplete
-                    value={formik.values.country}
-                    onChange={(e, val) => { formik.setFieldValue('country', val) }}
-                    disablePortal
-                    id="country-select"
-                    options={countries}
-                    sx={{ width: 300 }}
-                    renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} label="Submission country" />}
-                />
-
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                        id="visa-recieved"
-                        label="Visa recieved"
-                        value={formik.values.revieved}
-                        onChange={(val) => { formik.setFieldValue('revieved', val) }}
-                        renderInput={(params) => <TextField sx={{ marginTop: "10px" }} {...params} />}
-                    />
-                </LocalizationProvider>
-                <UpdateButton submit={formik.handleSubmit} status={updateStatus} user={user} setUser={setUser} />
+                </Box>
+                <Box sx={{ display: "block" }}>
+                    <UpdateButton submit={formik.handleSubmit} status={updateStatus} user={user} setUser={setUser} />
+                </Box>
             </Paper>
 
-        </Container>
+        </Container >
     )
 }

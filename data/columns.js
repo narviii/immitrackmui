@@ -10,20 +10,23 @@ function dateFormat(param) {
 const columns = [
     {
         field: 'username',
-        headerName: 'Username',
+        headerName: 'TG username',
+        description:'Имя пользователя в Telegram.  Автоматически подтягивается при авторизации.',
         width: 150
     },
     {
         field: 'applied',
         type: "date",
-        headerName: 'Date applied',
+        headerName: 'Applied',
+        description:'Какого числа подались на визу?',
         width: 120,
         valueFormatter: dateFormat
     },
     {
         field: 'biometry',
         type: "date",
-        headerName: 'Biometry date',
+        headerName: 'Biometry',
+        description:'Какого числа сдали биометрию?',
         width: 120,
         valueFormatter: dateFormat
 
@@ -31,12 +34,14 @@ const columns = [
     {
         field: 'biometry_place',
         headerName: 'Biometry place',
+        description: 'Где сдавали биометрию?',
         width: 150
     },
     {
         field: 'approved',
         type: "date",
-        headerName: 'Visa approved',
+        headerName: 'Approval date',
+        description:'Какого числа вам одобрили визу?',
         width: 120,
         valueFormatter: dateFormat
 
@@ -44,7 +49,8 @@ const columns = [
     {
         field: 'passport_submited',
         type: "date",
-        headerName: 'Passport submitted',
+        headerName: 'Submission date',
+        description:'Какого числа отправили паспорт на вклейку визы?',
         width: 150,
         valueFormatter: dateFormat
 
@@ -52,12 +58,14 @@ const columns = [
     {
         field: 'country',
         headerName: 'Submission country',
+        description:'В какой стране отправилип пасспорт на вклейку визы?',
         width: 200
     },
     {
         field: 'revieved',
         type: "date",
         headerName: 'Visa recieved',
+        description:'Какого числа получили пасспорт назад?',
         width: 120,
         valueFormatter: dateFormat
 
