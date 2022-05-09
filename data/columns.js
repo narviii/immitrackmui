@@ -12,7 +12,7 @@ const columns = [
         field: 'username',
         headerName: 'TG username',
         description:'Имя пользователя в Telegram.  Автоматически подтягивается при авторизации.',
-        width: 150
+        width: 170
     },
     {
         field: 'applied',
@@ -58,14 +58,14 @@ const columns = [
     {
         field: 'country',
         headerName: 'Submission country',
-        description:'В какой стране отправилип пасспорт на вклейку визы?',
+        description:'В какой стране отправилип паспорт на вклейку визы?',
         width: 200
     },
     {
         field: 'revieved',
         type: "date",
         headerName: 'Visa recieved',
-        description:'Какого числа получили пасспорт назад?',
+        description:'Какого числа получили паспорт назад?',
         width: 120,
         valueFormatter: dateFormat
 
