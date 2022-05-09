@@ -23,17 +23,11 @@ function dateFormat(param) {
 
 
 const columns = [
-    {
-        field: 'username',
-        headerName: 'TG username',
-        description: 'Имя пользователя в Telegram.  Автоматически подтягивается при авторизации.',
-        width: 170,
-        valueFormatter:anonimize
-    },
+    
     {
         field: 'applied',
         type: "date",
-        headerName: 'Applied',
+        headerName: 'Applied for visa',
         description: 'Какого числа подались на визу?',
         width: 120,
         valueFormatter: dateFormat
@@ -41,7 +35,7 @@ const columns = [
     {
         field: 'biometry',
         type: "date",
-        headerName: 'Biometry',
+        headerName: 'Biometry date',
         description: 'Какого числа сдали биометрию?',
         width: 120,
         valueFormatter: dateFormat
