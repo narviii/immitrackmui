@@ -36,3 +36,20 @@ model users {
   updatedAt   DateTime @updatedAt
 
 }
+
+model entriesSync {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  applied           DateTime? @db.Date
+  approved          DateTime? @db.Date
+  biometry          DateTime? @db.Date
+  biometry_place    String?
+  country           String?
+  passport_submited DateTime? @db.Date
+  recieved          DateTime? @db.Date
+  /// Multiple data types found: Float: 50%, Int: 50% out of 8 sampled entries
+  username          String
+  notes             String?
+  index             Int       @unique
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}

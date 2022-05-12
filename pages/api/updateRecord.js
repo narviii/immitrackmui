@@ -10,7 +10,7 @@ async function writeDB(data, token) {
         where: { telegram_id: token.id },
         create: {
             applied: data.applied,
-            biometry: data.applied,
+            biometry: data.biometry,
             biometry_place: data.biometry_place?.label,
             approved: data.approved,
             passport_submited: data.passport_submited,
@@ -21,7 +21,7 @@ async function writeDB(data, token) {
         },
         update: {
             applied: data.applied,
-            biometry: data.applied,
+            biometry: data.biometry,
             biometry_place: data.biometry_place?.label,
             approved: data.approved,
             passport_submited: data.passport_submited,
