@@ -39,8 +39,8 @@ export default function Index({ entries }) {
           </Toolbar>
         </AppBar>
       </Box>
-      <Container maxWidth="lg">
-        <Paper sx={{ padding: "15px" }}>
+      <Container maxWidth="xl">
+        <Paper sx={{mt:4,mb:2, padding: "15px" }}>
           
           <Typography variant="h5">
             Это трекер для отслеживания сроков получения виз CUAET участниками чатов о иммиграции в 🇨🇦Канаду для 🇺🇦украинцев.
@@ -56,11 +56,11 @@ export default function Index({ entries }) {
       </Container>
       <UpdateForm user={user} mutate={mutate} />
 
-      <Container sx={{ marginTop: "20px" }} maxWidth="lg">
+      <Container sx={{ marginTop: "20px" }} maxWidth="xl">
 
 
         <Table data={data} />
-        <Typography sx={{mb:4,mt:2}}>Исходная Google Doc таблица находится <Link href="https://docs.google.com/spreadsheets/d/1sgUPbogDw7V4rakrBSJ07_YLhvVem79rtGq7Xj__ec0/edit#gid=0"> вот тут</Link></Typography>
+        <Typography sx={{mb:4,mt:2}}>Исходная Google Doc таблица находится <Link href="https://docs.google.com/spreadsheets/d/1sgUPbogDw7V4rakrBSJ07_YLhvVem79rtGq7Xj__ec0/edit#gid=0"> вот тут</Link>. Сайт синхронизируется с ней раз в день.</Typography>
 
       </Container>
     </React.Fragment>

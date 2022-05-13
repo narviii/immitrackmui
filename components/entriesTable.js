@@ -16,6 +16,7 @@ export default function EntriesTabke({ data }) {
     return (
         <div>
             {data ? <DataGrid
+                
                 autoHeight
                 rows={data}
                 columns={columns}

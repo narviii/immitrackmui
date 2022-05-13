@@ -34,7 +34,7 @@ export default function UpdateForm({ user, mutate, setUser }) {
                 formik.setFieldValue('approved', res.data.approved ? new Date(res.data.approved) : null)
                 formik.setFieldValue('passport_submited', res.data.passport_submited ? new Date(res.data.passport_submited) : null)
                 formik.setFieldValue('country', res.data.country ? countries.find(elem => elem.label == res.data.country) : null)
-                formik.setFieldValue('revieved', res.data.revieved ? new Date(res.data.revieved) : null)
+                formik.setFieldValue('recieved', res.data.recieved ? new Date(res.data.recieved) : null)
             })
             .catch((err) => console.log(err))
 
@@ -52,7 +52,7 @@ export default function UpdateForm({ user, mutate, setUser }) {
             approved: null,
             passport_submited: null,
             country: null,
-            revieved: null,
+            recieved: null,
         },
         onSubmit: (values) => {
             setUpdateStatus("loading")
@@ -61,7 +61,7 @@ export default function UpdateForm({ user, mutate, setUser }) {
         },
     })
     return (
-        <Container sx={{ marginTop: "10px" }} maxWidth="lg">
+        <Container sx={{ marginTop: "10px" }} maxWidth="xl">
             <Paper sx={{ padding: "15px" }}>
                 <Box sx={{ display: "block" }}>
 
@@ -140,8 +140,8 @@ export default function UpdateForm({ user, mutate, setUser }) {
                                 id="visa-recieved"
                                 label="Когда получили назад?"
                                 disabled={!user ? true : false}
-                                value={formik.values.revieved}
-                                onChange={(val) => { formik.setFieldValue('revieved', val) }}
+                                value={formik.values.recieved}
+                                onChange={(val) => { formik.setFieldValue('recieved', val) }}
                                 renderInput={(params) => <TextField helperText="Какого числа получили паспорт обратно?" sx={{ mb: 2, mr: 2 }}  {...params} />}
                             />
                         </LocalizationProvider>

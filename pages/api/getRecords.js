@@ -5,15 +5,17 @@ async function getAllEntries() {
     // Connect the client
     await prisma.$connect()
     // ... you will write your Prisma Client queries here
-    const allEntries = await prisma.entries.findMany()
-    return allEntries
+    const allEntries = await prisma.entriesSync.findMany()
+    const allMainEntries = await prisma.entriesMain.findMany()
+    //console.log(allMainEntries)
+    return allEntries.concat(allMainEntries)
 }
 
 async function findEntry(id) {
     // Connect the client
     await prisma.$connect()
     // ... you will write your Prisma Client queries here
-    const allEntries = await prisma.entries.findFirst({
+    const allEntries = await prisma.entriesMain.findFirst({
         where: {
             telegram_id: parseFloat(id),
         },
