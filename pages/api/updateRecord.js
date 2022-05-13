@@ -6,7 +6,7 @@ const TelegramAuth = new TelegramLogin(secret);
 
 async function writeDB(data, token) {
     await prisma.$connect()
-    await prisma.entries.upsert({
+    await prisma.entriesMain.upsert({
         where: { telegram_id: token.id },
         create: {
             applied: data.applied,
@@ -15,7 +15,7 @@ async function writeDB(data, token) {
             approved: data.approved,
             passport_submited: data.passport_submited,
             country: data.country?.label,
-            revieved: data.revieved,
+            recieved: data.recieved,
             telegram_id: token.id,
             username: token.username,
         },
@@ -26,7 +26,7 @@ async function writeDB(data, token) {
             approved: data.approved,
             passport_submited: data.passport_submited,
             country: data.country?.label,
-            revieved: data.revieved,
+            recieved: data.recieved,
             username: token.username,
         }
     })

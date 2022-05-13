@@ -15,7 +15,23 @@ model entries {
   biometry_place    String?
   country           String?
   passport_submited DateTime? @db.Date
-  revieved          DateTime? @db.Date
+  recieved          DateTime? @db.Date
+  /// Multiple data types found: Float: 50%, Int: 50% out of 8 sampled entries
+  telegram_id       Float?    @unique
+  username          String
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model entriesMain {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  applied           DateTime? @db.Date
+  approved          DateTime? @db.Date
+  biometry          DateTime? @db.Date
+  biometry_place    String?
+  country           String?
+  passport_submited DateTime? @db.Date
+  recieved          DateTime? @db.Date
   /// Multiple data types found: Float: 50%, Int: 50% out of 8 sampled entries
   telegram_id       Float?    @unique
   username          String

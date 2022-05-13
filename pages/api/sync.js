@@ -1,8 +1,22 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
-const creds = require('../../config/cuaetracker-23b670a080b7.json')
 const dayjs = require('dayjs')
 import ExcelDateToJSDate from '../../helpers/exceltojs';
 import { PrismaClient } from '@prisma/client'
+const syncSecret = process.env.SYNC_TOKEN
+
+const creds = {
+    type: process.env.TYPE,
+    project_id: process.env.PROJECT_ID,
+    private_key_id: process.env.PRIVATE_KEY_ID,
+    private_key: process.env.PRIVATE_KEY,
+    client_email: process.env.CLIENT_EMAIL,
+    client_id: process.env.CLIENT_ID,
+    auth_uri: process.env.AUTH_URI,
+    token_uri: process.env.TOKEN_URI,
+    auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
+    client_x509_cert_url: process.env.CLIENT_X509_CERT_URL
+}
+
 
 const prisma = new PrismaClient()
 
@@ -99,13 +113,15 @@ async function writeEntries(entries) {
 
 export default async function handler(req, res) {
 
+    if (req.headers.authorization.split(' ')[1] !== syncSecret) return res.status(511).send("Not authorized")
+
     try {
         const doc = new GoogleSpreadsheet('1sgUPbogDw7V4rakrBSJ07_YLhvVem79rtGq7Xj__ec0');
         const entries = []
 
         await doc.useServiceAccountAuth(creds);
-        await doc.loadInfo(); // loads document properties and worksheets
-        const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
+        await doc.loadInfo();
+        const sheet = doc.sheetsByIndex[0];
         const rows = await sheet.getRows();
         await sheet.loadCells(`A1:L${rows.length}`);
         //console.log(`A1:L${rows.length}`)
@@ -115,6 +131,7 @@ export default async function handler(req, res) {
         }
 
         writeEntries(entries)
+        console.log("Done!")
 
         res.status(200).send(entries)
 
