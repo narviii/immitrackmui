@@ -139,6 +139,7 @@ const columns = [
         },
         valueFormatter: durationHumanize
     },
+    
 ];
 
 export default columns

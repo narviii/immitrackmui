@@ -124,11 +124,13 @@ export default async function handler(req, res) {
         const sheet = doc.sheetsByIndex[0];
         const rows = await sheet.getRows();
         await sheet.loadCells(`A1:L${rows.length}`);
+        console.log(rows.length)
         //console.log(`A1:L${rows.length}`)
         for (let i = 1; i < rows.length; i++) {
             const entry = await getRowData(sheet, i)
             if (entry) { entries.push(entry) }
         }
+        //console.log(JSON.stringify(entries,null,2))
 
         writeEntries(entries)
         console.log("Done!")
